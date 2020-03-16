@@ -53,6 +53,7 @@ void InitCollectives(int device) {
         //
         // It is not possible to control which streams the MPI implementation
         // uses for its data transfer.
+	printf("Use GPU:%d\n",device);        
         cudaError_t error = cudaSetDevice(device);
         if(error != cudaSuccess) {
             throw std::runtime_error("cudaSetDevice failed with an error");

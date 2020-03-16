@@ -11,8 +11,8 @@ endif
 CC:=mpic++
 NVCC:=nvcc
 LDFLAGS:=-L$(CUDA_ROOT)/lib64 -L$(MPI_ROOT)/lib -lcudart -lmpi -DOMPI_SKIP_MPICXX=
-CFLAGS:=-std=c++11 -I$(MPI_ROOT)/include -I. -I$(CUDA_ROOT)/include -DOMPI_SKIP_MPICXX=
-EXE_NAME:=allreduce-test
+CFLAGS:=-std=c++11 -D__SOLA_LOGGING_ENABLED -I$(MPI_ROOT)/include -I. -I$(CUDA_ROOT)/include -DOMPI_SKIP_MPICXX=
+EXE_NAME:=ringallreduce-test
 SRC:=$(wildcard *.cpp test/*.cpp)
 CU_SRC:=$(wildcard *.cu)
 OBJS:=$(SRC:.cpp=.o) $(CU_SRC:.cu=.o)
